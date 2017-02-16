@@ -3,7 +3,7 @@ name: Daniel Margol
 bio: Software Engineer at Vizuri. Runner. Ice Hockey Fan and Player. Avid Atlanta Falcons Fan.
 
 # twitter summary info
-description: A blog about technology and stuff related
+description: A blog about technology and related stuff
 
 # if it's an external image, update below for true
 # better with square images
@@ -16,7 +16,7 @@ resume: true
 resume-external: true
 resume-url: https://drive.google.com/file/d/0B0tH261ryHpYdnZGNUo2WndDMTQ/view?usp=sharing
 
-url: http://dmarg.github.io
+url: http://danielmargol.com
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -37,7 +37,7 @@ disqus:
 # facebook: myfacebook
 twitter: danielmargol
 # google: mygoogle
-# instagram: myinstagram
+instagram: dmargol
 # pinterest: mypinterest
 linkedin: danielmargol
 # youtube: myyoutube
@@ -46,7 +46,7 @@ github: dmarg
 stackoverflow: 3935318/daniel-margol
 # quora: userquora
 # reddit: username
-# medium: dmarg
+# medium: mymedium
 # vimeo: myvimeo
 # email: myemail@gmail.com
 

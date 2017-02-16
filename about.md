@@ -2,14 +2,17 @@
 title: About
 layout: page
 ---
-![Profile Image]({{ site.url }}/{{ site.picture }})
+<!--![Profile Image]({{ site.url }}/{{ site.picture }})-->
+
+<img class="selfie" style="border-radius: 5%" alt="{{ site.name }}" src="{% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %}" />
 
 <p>I’m a Software Engineer with a focus in Javascript, Node, Angular, MongoDB, Product Design, and User Experience. 
-I love rapid development and prototyping, but nothing gets me in the mood more than launching apps for production.</p>
+I love rapid development, prototyping, and launching apps for production.</p>
+
 
 <h2>Skills</h2>
 
-<ul class="skill-list">
+<ul class="skill-list center">
 	<li>Javascript (Design Patterns, Testes)</li>
 	<li>Responsive (Mobile First)</li>
 	<li>HTML</li>
