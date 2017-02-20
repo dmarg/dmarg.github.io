@@ -6,9 +6,8 @@ layout: page
 
 <img class="selfie" style="border-radius: 5%" alt="{{ site.name }}" src="{% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %}" />
 
-<p>I’m a Software Engineer with a focus in Javascript, Node, Angular, MongoDB, Product Design, and User Experience. 
+<p>I’m a Software Engineer with a focus in fullstack JavaScript, Product Design, and User Experience. 
 I love rapid development, prototyping, and launching apps for production.</p>
-
 
 <h2>Skills</h2>
 
