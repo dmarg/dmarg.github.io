@@ -14,8 +14,8 @@ I love rapid development, prototyping, and launching apps for production.</p>
 <ul class="skill-list center">
 	<li>JavaScript (Angular, Node, Express, D3, jQuery)</li>
 	<li>TypeScript</li>
-	<li>Responsive (Mobile First)</li>
-	<li>HTML &amp; CSS (Sass, Less)</li>
+	<li>Ionic Framework</li>
+	<li>HTML &amp; CSS (Sass, Less, Bootstrap)</li>
 	<li>Grunt - Gulp - Yeoman</li>
 	<li>Git</li>
 	<li>MongoDB - SQL</li>
