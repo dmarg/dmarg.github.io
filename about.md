@@ -12,16 +12,10 @@ I love rapid development, prototyping, and launching apps for production.</p>
 <h2>Skills</h2>
 
 <ul class="skill-list center">
-	<li>Javascript (Design Patterns, Testes)</li>
+	<li>JavaScript (Angular, Node, Express, D3, jQuery)</li>
+	<li>TypeScript</li>
 	<li>Responsive (Mobile First)</li>
-	<li>HTML</li>
-	<li>CSS (Sass, Less)</li>
-	<li>CSS Frameworks (Bootstrap, Foundation)</li>
-	<li>NodeJS</li>
-	<li>Express</li>
-	<li>AngularJS</li>
-	<li>jQuery</li>
-	<li>D3.js</li>
+	<li>HTML &amp; CSS (Sass, Less)</li>
 	<li>Grunt - Gulp - Yeoman</li>
 	<li>Git</li>
 	<li>MongoDB - SQL</li>
