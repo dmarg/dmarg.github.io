@@ -14,7 +14,7 @@ picture: assets/images/profile.jpg
 # and specify source (external or local).
 resume: true
 resume-external: true
-resume-url: https://drive.google.com/file/d/0B0tH261ryHpYdnZGNUo2WndDMTQ/view?usp=sharing
+resume-url: http://resume.danielmargol.com
 
 url: http://danielmargol.com
 # your url: http://USERNAME.github.io
