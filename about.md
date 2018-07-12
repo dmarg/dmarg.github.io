@@ -2,18 +2,24 @@
 title: About
 layout: page
 ---
+
 <!--![Profile Image]({{ site.url }}/{{ site.picture }})-->
 
 <img class="selfie" style="border-radius: 5%" alt="{{ site.name }}" src="{% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %}" />
 
-<p>I’m a Software Engineer with a focus in fullstack JavaScript, Product Design, and User Experience. 
+<p>I’m a Software Engineer with a focus in fullstack JavaScript, Product Design, and User Experience.
 I love rapid development, prototyping, and launching apps for production.</p>
 
 <h2>Skills</h2>
 
 <ul class="skill-list center">
-	<li>JavaScript (Angular, Node, Express, D3, jQuery)</li>
+	<li>JavaScript</li>
 	<li>TypeScript</li>
+	<li>Node</li>
+	<li>Angular</li>
+	<li>Vue - Vuex</li>
+	<li>D3</li>
+	<li>Cordova</li>
 	<li>Ionic Framework</li>
 	<li>HTML &amp; CSS (Sass, Less, Bootstrap)</li>
 	<li>Grunt - Gulp - Yeoman</li>
