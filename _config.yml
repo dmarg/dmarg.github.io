@@ -1,6 +1,6 @@
 # main text of home
 name: Daniel Margol
-bio: Software Engineer at Vizuri. Runner. Ice Hockey Fan and Player. Avid Atlanta Falcons Fan.
+bio: Software Engineer at Bloomberg Government. Runner. Ice Hockey Fan and Player. Avid Atlanta Falcons Fan.
 
 # twitter summary info
 description: A blog about technology and related stuff.
@@ -37,7 +37,7 @@ disqus:
 # facebook: myfacebook
 twitter: danielmargol
 # google: mygoogle
-instagram: dmargol
+# instagram: dmargol
 # pinterest: mypinterest
 linkedin: danielmargol
 # youtube: myyoutube
@@ -53,7 +53,7 @@ stackoverflow: 3935318/daniel-margol
 authors:
     danielmargol:
         name: Daniel Margol
-        bio: Software Engineer at Vizuri. Runner. Ice Hockey Fan and Player. Avid Atlanta Falcons Fan.
+        bio: Software Engineer at Bloomberg Government. Runner. Ice Hockey Fan and Player. Avid Atlanta Falcons Fan.
         external-image: false
         picture: assets/images/profile.jpg
         twitter: danielmargol
