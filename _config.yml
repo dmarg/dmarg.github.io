@@ -1,6 +1,6 @@
 # main text of home
 name: Daniel Margol
-bio: Software Engineer at Bloomberg Government. Runner. Ice Hockey Fan and Player. Avid Atlanta Falcons Fan.
+bio: Senior Software Engineer at Indigov.
 
 # twitter summary info
 description: A blog about technology and related stuff.
@@ -9,6 +9,10 @@ description: A blog about technology and related stuff.
 # better with square images
 external-image: false
 picture: assets/images/profile.jpg
+
+# your site color theme, true for dark theme, 
+# false to light theme, auto to switch with system.
+dark-theme: auto
 
 # If you want to include your resume, set to true
 # and specify source (external or local).
@@ -53,7 +57,7 @@ stackoverflow: 3935318/daniel-margol
 authors:
     danielmargol:
         name: Daniel Margol
-        bio: Software Engineer at Bloomberg Government. Runner. Ice Hockey Fan and Player. Avid Atlanta Falcons Fan.
+        bio: Software Engineer at Indigov.
         external-image: false
         picture: assets/images/profile.jpg
         twitter: danielmargol
@@ -63,9 +67,13 @@ authors:
 # normal = 560px / large = 810px
 width: normal
 
-# if you don't need pagination, comment the *paginate* configs below
-paginate: 5
-paginate_path: "blog/:num/"
+# if you do/don't need pagination, toggle 'enabled' between true/false below
+pagination:
+  enabled: true
+  sort_reverse: true # display recent posts first
+  title: ":title" # Changing this will mess up the header display logic
+  per_page: 5
+  permalink: "/:num/" # pagination link that will be appended
 
 # if you don't need projects, comment the *projects* configs below
 projects: true
@@ -92,10 +100,24 @@ show-author: true
 # do you want some animations?
 animation: true
 
-gems:
+plugins:
   - jekyll-seo-tag
   - jekyll-gist
-  - jekyll-paginate
+  - jekyll-feed
+  - jemoji
+  - jekyll-paginate-v2
 
-jekyll-mentions:
-    base_url: https://github.com
+compress_html:
+  ignore:
+    envs:
+      - development
+      - stage
+
+exclude:
+  [
+    "README.md",
+    "Gemfile",
+    "Gemfile.lock",
+    "FAQ.md",
+    "vendor",
+  ]

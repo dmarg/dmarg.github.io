@@ -7,8 +7,7 @@ layout: page
 
 <img class="selfie" style="border-radius: 5%" alt="{{ site.name }}" src="{% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %}" />
 
-<p>I’m a Software Engineer with a focus in fullstack JavaScript, Product Design, and User Experience.
-I love rapid development, prototyping, and launching apps for production.</p>
+<p>Hi! I'm a Senior Software Engineer with a strong background in product development and user experience. I am dedicated to continuous learning and growth, both as a developer, leader, and team player. I am always seeking new challenges and opportunities to expand my skills and make meaningful contributions to projects and teams.</p>
 
 <h2>Skills</h2>
 
@@ -17,14 +16,16 @@ I love rapid development, prototyping, and launching apps for production.</p>
 	<li>TypeScript</li>
 	<li>Node</li>
 	<li>Angular</li>
+	<li>React</li>
 	<li>Vue - Vuex</li>
 	<li>D3</li>
-	<li>Cordova</li>
 	<li>Ionic Framework</li>
+	<li>Capacitor &amp; Cordova</li>
 	<li>HTML &amp; CSS (Sass, Less, Bootstrap)</li>
-	<li>Grunt - Gulp - Yeoman</li>
 	<li>Git</li>
-	<li>MongoDB - SQL</li>
+	<li>AWS</li>
+	<li>Postgres</li>
+	<li>MongoDB</li>
 	<li>Agile - Scrum and Kanban</li>
 </ul>
 
