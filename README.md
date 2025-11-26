@@ -8,29 +8,29 @@ This site is built with [Astro](https://astro.build), a modern static site gener
 
 ### Tech Stack
 
--   **Framework**: Astro with TypeScript
--   **Styling**: Tailwind CSS
--   **Content**: Markdown with MDX support
--   **Deployment**: GitHub Pages via GitHub Actions
+- **Framework**: Astro with TypeScript
+- **Styling**: Tailwind CSS
+- **Content**: Markdown with MDX support
+- **Deployment**: GitHub Pages via GitHub Actions
 
 ### Features
 
--   📝 Blog with pagination
--   🎯 Project showcase
--   🏷️ Tag-based filtering
--   📱 Fully responsive design
--   ⚡ Lightning-fast performance
--   🔍 SEO optimized
--   📊 Google Analytics integration
--   💬 Disqus comments
--   📰 RSS feed
+- 📝 Blog with pagination
+- 🎯 Project showcase
+- 🏷️ Tag-based filtering
+- 📱 Fully responsive design
+- ⚡ Lightning-fast performance
+- 🔍 SEO optimized
+- 📊 Google Analytics integration
+- 💬 Disqus comments
+- 📰 RSS feed
 
 ## Development
 
 ### Prerequisites
 
--   Node.js 20+
--   npm
+- Node.js 20+
+- npm
 
 ### Installation
 
@@ -88,8 +88,8 @@ title: "Your Post Title"
 date: 2024-01-01
 description: "Brief description"
 tags:
-    - Tag1
-    - Tag2
+  - Tag1
+  - Tag2
 category: blog
 author: danielmargol
 ---
@@ -109,7 +109,3 @@ author: danielmargol
 ## License
 
 Content © 2025 Daniel Margol. All rights reserved.
-
-## Previous Version
-
-This site was previously built with Jekyll using the [Indigo theme](https://github.com/sergiokopplin/indigo) by Sérgio Kopplin
