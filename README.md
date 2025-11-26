@@ -29,7 +29,7 @@ This site is built with [Astro](https://astro.build), a modern static site gener
 
 ### Prerequisites
 
-- Node.js 20+
+- Node.js 22+
 - npm
 
 ### Installation
