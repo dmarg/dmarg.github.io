@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  name: string;
+  profileImage: string;
+  linkTo?: string;
+  eager?: boolean;
+}
+
+const { name, profileImage, linkTo, eager = false } = Astro.props;
+---
+
+{
+  linkTo ? (
+    <a href={linkTo} class="profile-image-wrapper">
+      <Image src={profileImage} alt={name} width={192} height={192} loading={eager ? 'eager' : 'lazy'} class="profile-image" />
+    </a>
+  ) : (
+    <div class="profile-image-wrapper">
+      <Image src={profileImage} alt={name} width={192} height={192} loading={eager ? 'eager' : 'lazy'} class="profile-image" />
+    </div>
+  )
+}
+
+<style>
+  .profile-image-wrapper {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding: 4px;
+    border-radius: 0.75rem;
+    background: linear-gradient(to bottom right, var(--blue), var(--green));
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    line-height: 0;
+  }
+
+  .profile-image {
+    display: block;
+    width: 10rem !important;
+    height: 10rem !important;
+    max-width: 10rem !important;
+    max-height: 10rem !important;
+    min-width: 10rem !important;
+    min-height: 10rem !important;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+  }
+
+  @media (min-width: 768px) {
+    .profile-image {
+      width: 12rem !important;
+      height: 12rem !important;
+      max-width: 12rem !important;
+      max-height: 12rem !important;
+      min-width: 12rem !important;
+      min-height: 12rem !important;
+    }
+  }
+
+  .profile-image-wrapper:hover .profile-image {
+    filter: brightness(1.1);
+  }
+</style>

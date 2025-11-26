@@ -1,0 +1,38 @@
+---
+import { formatDateShort } from '../utils/formatDate';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, date, tags } = post.data;
+---
+
+<article class="group animate-slide-up pb-2 border-b border-gray-200">
+  <a href={`/blog/${post.slug}`} class="block">
+    <div class="flex gap-4 items-start mb-4">
+      <aside class="text-sm text-gray-500 font-medium min-w-[100px]">
+        <time datetime={date.toISOString()}>{formatDateShort(date)}</time>
+      </aside>
+      <div class="flex-1">
+        <div class="flex gap-4">
+          <h3 class="text-xl font-semibold text-gray-900 group-hover:bg-gradient-to-r group-hover:from-blue group-hover:to-green group-hover:bg-clip-text group-hover:text-transparent">
+            {title}
+          </h3>
+          <div class="flex-1"></div>
+        </div>
+        {
+          tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mt-3">
+              {tags.map((tag) => (
+                <span class="px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg text-sm font-medium">{tag}</span>
+              ))}
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </a>
+</article>

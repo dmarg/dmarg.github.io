@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+import { sortPostsByDate } from '../../utils/sortPosts';
+
+const allProjects = await getCollection('projects');
+const sortedProjects = sortPostsByDate(allProjects) as any[];
+const visibleProjects = sortedProjects.filter((p) => !p.data.hidden);
+---
+
+<BaseLayout title="Projects" description="Personal projects and side projects by Daniel Margol.">
+  <div class="container mx-auto px-4 max-w-4xl min-h-screen flex flex-col">
+    <Navigation currentPath="/projects" />
+    <main class="animate-fade-in flex-1">
+      <h1 class="mt-4 text-4xl font-bold mb-12 text-gray-900">
+        <span style="background: linear-gradient(to right, var(--blue), var(--green)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+          Projects
+        </span>
+      </h1>
+
+      {
+        visibleProjects.length === 0 ? (
+          <p class="text-center text-gray-600 py-12">No projects yet!</p>
+        ) : (
+          <div class="space-y-10">
+            {visibleProjects.map((project) => (
+              <ProjectCard project={project} />
+            ))}
+          </div>
+        )
+      }
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>

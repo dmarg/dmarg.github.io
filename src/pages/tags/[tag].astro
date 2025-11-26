@@ -1,0 +1,64 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+import { getAllTags, sortPostsByDate } from '../../utils/sortPosts';
+
+export const getStaticPaths = (async () => {
+  const allBlogPosts = await getCollection('blog');
+  const allProjects = await getCollection('projects');
+  const allPosts = [...allBlogPosts, ...allProjects];
+  const tags = getAllTags(allPosts);
+
+  return tags.map((tag) => {
+    const tagSlug = tag.toLowerCase().replace(/\s+/g, '-');
+    const filteredPosts = allPosts.filter((post) => post.data.tags.some((t) => t.toLowerCase().replace(/\s+/g, '-') === tagSlug));
+    const sortedPosts = sortPostsByDate(filteredPosts);
+
+    return {
+      params: { tag: tagSlug },
+      props: { tag, posts: sortedPosts },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { tag, posts } = Astro.props;
+---
+
+<BaseLayout title={`Posts tagged "${tag}"`} description={`All posts tagged with ${tag}.`}>
+  <div class="container mx-auto px-4 max-w-4xl min-h-screen flex flex-col">
+    <Navigation currentPath="/tags" />
+
+    <main class="animate-fade-in flex-1">
+      <h1 class="text-4xl font-bold mb-4 text-gray-900">
+        <span style="background: linear-gradient(to right, var(--blue), var(--green)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+          #{tag}
+        </span>
+      </h1>
+      <p class="text-gray-600 mb-12">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+
+      <div class="space-y-8">
+        {
+          posts.map((post: any) => {
+            if (post.data.category === 'blog') {
+              return <BlogCard post={post} />;
+            } else {
+              return <ProjectCard project={post} />;
+            }
+          })
+        }
+      </div>
+
+      <div class="mt-12">
+        <a href="/tags" class="text-primary-600 hover:text-primary-700 font-medium"> ← Back to all tags </a>
+      </div>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>

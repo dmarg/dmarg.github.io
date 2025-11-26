@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import Pagination from '../../components/Pagination.astro';
+import { getCollection } from 'astro:content';
+import { sortPostsByDate } from '../../utils/sortPosts';
+
+const allBlogPosts = await getCollection('blog');
+const sortedPosts = sortPostsByDate(allBlogPosts) as any[];
+
+const postsPerPage = 5;
+const totalPages = Math.ceil(sortedPosts.length / postsPerPage);
+const currentPage = 1;
+const paginatedPosts = sortedPosts.slice(0, postsPerPage);
+---
+
+<BaseLayout title="Blog" description="Blog posts about technology, software development, and related topics.">
+  <div class="container mx-auto px-4 max-w-4xl min-h-screen flex flex-col">
+    <Navigation currentPath="/blog" />
+    <main class="animate-fade-in flex-1">
+      <h1 class="mt-4 text-4xl font-bold mb-12 text-gray-900">
+        <span style="background: linear-gradient(to right, var(--blue), var(--green)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+          Blog
+        </span>
+      </h1>
+
+      {
+        paginatedPosts.length === 0 ? (
+          <p class="text-center text-gray-600 py-12">Nothing published yet!</p>
+        ) : (
+          <div class="space-y-8">
+            {paginatedPosts.map((post) => (
+              <BlogCard post={post} />
+            ))}
+          </div>
+        )
+      }
+
+      <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl="/blog" />
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+const { currentPath, position = 'top' } = Astro.props;
+
+const navItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Projects', path: '/projects' },
+  { name: 'About', path: '/about' },
+];
+
+function isActive(itemPath: string, current: string): boolean {
+  if (itemPath === '/' && current === '/') return true;
+  if (itemPath !== '/' && current.startsWith(itemPath)) return true;
+  return false;
+}
+
+const borderClass = position === 'bottom' ? 'border-t' : 'border-b';
+---
+
+<nav class={`py-6 ${borderClass} border-gray-100`}>
+  <ul class="flex flex-wrap justify-center gap-6 md:gap-10">
+    {
+      navItems.map((item) => {
+        const active = isActive(item.path, currentPath);
+        return (
+          <li>
+            <a
+              href={item.path}
+              class={`nav-link relative inline-block text-base md:text-lg font-semibold px-2 py-2 ${
+                active ? 'text-gray-900 active' : 'text-gray-700 hover:bg-gradient-to-r hover:from-blue hover:to-green hover:bg-clip-text hover:text-transparent'
+              }`}
+            >
+              {item.name}
+              {active && <span class="absolute bottom-0 left-0 right-0 h-0.5 nav-underline" />}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>
+
+<style>
+  .nav-underline {
+    background: linear-gradient(to right, var(--blue), var(--green));
+  }
+</style>

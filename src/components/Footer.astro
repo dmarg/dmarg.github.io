@@ -1,0 +1,26 @@
+---
+import SocialLinks from './SocialLinks.astro';
+
+const currentYear = new Date().getFullYear();
+const siteTitle = 'Daniel Margol';
+---
+
+<footer class="mt-auto pt-8 pb-8 border-t border-gray-200">
+  <div class="container mx-auto px-4 text-center">
+    <div class="mb-2">
+      <SocialLinks />
+    </div>
+    <p class="text-gray-600 mb-2">
+      {siteTitle} © {currentYear}
+    </p>
+    <div class="flex justify-center items-center gap-4 text-sm text-gray-500">
+      <a href="/rss.xml" target="_blank" rel="noopener" class="hover:text-primary-600 transition-colors">
+        <i class="fa-solid fa-rss"></i> RSS
+      </a>
+      <span>•</span>
+      <span>
+        Built with <a href="https://astro.build" target="_blank" rel="noopener" class="hover:text-primary-600 transition-colors">Astro</a>
+      </span>
+    </div>
+  </div>
+</footer>

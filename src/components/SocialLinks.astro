@@ -1,0 +1,40 @@
+---
+const socialLinks = [
+  {
+    name: 'GitHub',
+    url: 'https://github.com/dmarg',
+    icon: 'fa-brands fa-github',
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/danielmargol/',
+    icon: 'fa-brands fa-linkedin',
+  },
+];
+---
+
+<div class="flex gap-6 justify-center">
+  {
+    socialLinks.map((link) => (
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link text-gray-700 transition-colors duration-300 text-2xl md:text-2xl"
+        aria-label={link.name}
+        title={link.name}
+      >
+        <i class:list={[link.icon, 'fa-fw']} aria-hidden="true" />
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .social-link:hover {
+    background: linear-gradient(to right, var(--blue), var(--green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>

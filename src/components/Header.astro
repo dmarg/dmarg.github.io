@@ -1,0 +1,21 @@
+---
+import ProfileImage from './ProfileImage.astro';
+
+const { showBio = true, showName = true } = Astro.props;
+const name = 'Daniel Margol';
+const profileImage = '/assets/images/profile.jpg';
+---
+
+<header class={`text-center animate-fade-in ${showBio || showName ? 'py-8' : ''}`}>
+  {showBio && <ProfileImage name={name} profileImage={profileImage} linkTo="/about" eager={true} />}
+  {
+    showName && (
+      <h1
+        class="text-6xl font-bold mb-8 leading-relaxed"
+        style="background: linear-gradient(to right, var(--blue), var(--green)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"
+      >
+        {name}
+      </h1>
+    )
+  }
+</header>

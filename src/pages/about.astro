@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import ProfileImage from '../components/ProfileImage.astro';
+
+const name = 'Daniel Margol';
+const profileImage = '/assets/images/profile.jpg';
+---
+
+<BaseLayout title="About" description="About Daniel Margol - Senior Software Engineer with a strong background in product development and user experience.">
+  <div class="container mx-auto px-4 max-w-4xl min-h-screen flex flex-col">
+    <Navigation currentPath="/about" />
+    <main class="prose prose-lg max-w-none animate-fade-in flex-1">
+      <h1 class="mt-4 text-4xl font-bold mb-12 text-gray-900">
+        <span style="background: linear-gradient(to right, var(--blue), var(--green)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+          About Me
+        </span>
+      </h1>
+
+      <p class="text-xl text-gray-700 leading-relaxed">
+        I am a Senior Engineering Leader with a strong full-stack background who loves building products that make a real impact. Over the past decade, I have led high-performing
+        teams, streamlined engineering processes, and shipped software that delivers meaningful business results. My experience spans full-stack development, cloud architecture,
+        mobile apps, and building collaborative engineering cultures where people do their best work. I thrive on learning, experimenting, and tackling ambitious problems with
+        teams who care about creating great products.
+      </p>
+
+      <h2 class="text-3xl font-bold mt-12 mb-8 text-gray-900">Technical Skills</h2>
+
+      <div class="space-y-6 not-prose">
+        <!-- Languages & Core -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Languages & Core</h3>
+          <div class="flex flex-wrap gap-2">
+            {
+              ['JavaScript', 'TypeScript', 'HTML', 'CSS', 'SQL', 'Node.js'].map((skill) => (
+                <span class="px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg text-sm font-medium">{skill}</span>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Frontend Frameworks -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Frontend Frameworks</h3>
+          <div class="flex flex-wrap gap-2">
+            {
+              ['React', 'Vue.js', 'Angular', 'Ionic', 'D3.js', 'Tailwind CSS', 'Bootstrap'].map((skill) => (
+                <span class="px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg text-sm font-medium">{skill}</span>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Backend & Databases -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Backend & Databases</h3>
+          <div class="flex flex-wrap gap-2">
+            {
+              ['Express', 'Remix', 'Rails', 'PostgreSQL', 'Redis', 'MongoDB', 'NoSQL'].map((skill) => (
+                <span class="px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg text-sm font-medium">{skill}</span>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Tools & Platforms -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Tools & Platforms</h3>
+          <div class="flex flex-wrap gap-2">
+            {
+              ['AWS', 'Docker', 'Git', 'CI/CD', 'Webpack', 'Vite', 'Twilio', 'Segment', 'Datadog'].map((skill) => (
+                <span class="px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg text-sm font-medium">{skill}</span>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Methodologies -->
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Methodologies</h3>
+          <div class="flex flex-wrap gap-2">
+            {
+              ['Agile', 'Scrum', 'Kanban', 'Code Review', 'Performance Optimization'].map((skill) => (
+                <span class="px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg text-sm font-medium">{skill}</span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>

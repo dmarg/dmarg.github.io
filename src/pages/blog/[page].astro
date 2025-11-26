@@ -1,0 +1,41 @@
+---
+import type { GetStaticPaths } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import Pagination from '../../components/Pagination.astro';
+import { getCollection } from 'astro:content';
+import { sortPostsByDate } from '../../utils/sortPosts';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allBlogPosts = await getCollection('blog');
+  const sortedPosts = sortPostsByDate(allBlogPosts) as CollectionEntry<'blog'>[];
+
+  return paginate(sortedPosts, { pageSize: 5 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title={`Blog - Page ${page.currentPage}`} description="Blog posts about technology, software development, and related topics.">
+  <div class="container mx-auto px-4 max-w-4xl min-h-screen flex flex-col">
+    <Navigation currentPath="/blog" />
+    <main class="animate-fade-in flex-1">
+      <h1 class="text-4xl font-bold mb-16 text-gray-900">
+        <span style="background: linear-gradient(to right, var(--blue), var(--green)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+          Blog
+        </span>
+      </h1>
+
+      <div class="space-y-10">
+        {page.data.map((post: CollectionEntry<'blog'>) => <BlogCard post={post} />)}
+      </div>
+
+      <Pagination currentPage={page.currentPage} totalPages={page.lastPage} baseUrl="/blog" />
+    </main>
+
+    <Footer />
+  </div>
+</BaseLayout>

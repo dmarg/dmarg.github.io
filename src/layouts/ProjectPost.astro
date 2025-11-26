@@ -1,0 +1,102 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { formatDate } from '../utils/formatDate';
+import { getReadingTime } from '../utils/readingTime';
+import { getRelatedPosts } from '../utils/sortPosts';
+import { getCollection } from 'astro:content';
+
+export interface Props {
+  project: CollectionEntry<'projects'>;
+  content: string;
+}
+
+const { project, content } = Astro.props;
+const { title, date, description, image, headerImage, tags } = project.data;
+const readingTime = getReadingTime(content);
+
+const allProjects = await getCollection('projects');
+const relatedProjects = getRelatedPosts(project, allProjects, 5);
+---
+
+<BaseLayout title={title} description={description} image={image} type="article">
+  <div class="container mx-auto px-4 max-w-4xl min-h-screen flex flex-col">
+    <Navigation currentPath={Astro.url.pathname} />
+
+    <article class="prose prose-lg max-w-none mb-16 flex-1">
+      {image && headerImage && <img src={image} alt={title} class="w-full rounded-lg shadow-lg mb-8" />}
+
+      <h1 class="text-4xl font-bold mb-4 mt-8 text-gray-900">{title}</h1>
+
+      <div class="flex items-center gap-4 text-gray-600 text-sm mb-8 not-prose">
+        <time datetime={date.toISOString()}>{formatDate(date)}</time>
+        <span>•</span>
+        <span>{readingTime}</span>
+      </div>
+
+      {
+        tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mb-8 not-prose">
+            {tags.map((tag) => (
+              <a
+                href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm hover:bg-primary-200 transition-colors"
+              >
+                {tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
+
+      <div class="mt-8">
+        <slot />
+      </div>
+    </article>
+
+    <!-- Related Projects -->
+    {
+      relatedProjects.length > 0 && (
+        <section class="mb-16 p-6 bg-gray-50 rounded-lg">
+          <h4 class="text-2xl font-bold mb-6 text-gray-900">Related Projects</h4>
+          <ul class="space-y-2">
+            {relatedProjects.map((relatedProject) => (
+              <li>
+                <a href={`/projects/${relatedProject.slug}`} class="text-primary-600 hover:text-primary-700 hover:underline">
+                  {relatedProject.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <!-- Disqus Comments -->
+    <section class="mb-16">
+      <div id="disqus_thread"></div>
+      <script is:inline>
+        var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = window.location.pathname;
+        };
+        (function () {
+          var d = document,
+            s = d.createElement('script');
+          s.src = 'https://danielmargol.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>
+        Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      </noscript>
+    </section>
+
+    <Footer />
+  </div>
+</BaseLayout>
