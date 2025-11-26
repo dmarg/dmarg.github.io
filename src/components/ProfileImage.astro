@@ -1,9 +1,10 @@
 ---
 import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
   name: string;
-  profileImage: string;
+  profileImage: ImageMetadata | string;
   linkTo?: string;
   eager?: boolean;
 }
@@ -14,11 +15,19 @@ const { name, profileImage, linkTo, eager = false } = Astro.props;
 {
   linkTo ? (
     <a href={linkTo} class="profile-image-wrapper">
-      <Image src={profileImage} alt={name} width={192} height={192} loading={eager ? 'eager' : 'lazy'} class="profile-image" />
+      {typeof profileImage === 'string' ? (
+        <Image src={profileImage} alt={name} width={192} height={192} loading={eager ? 'eager' : 'lazy'} class="profile-image" />
+      ) : (
+        <Image src={profileImage} alt={name} loading={eager ? 'eager' : 'lazy'} class="profile-image" />
+      )}
     </a>
   ) : (
     <div class="profile-image-wrapper">
-      <Image src={profileImage} alt={name} width={192} height={192} loading={eager ? 'eager' : 'lazy'} class="profile-image" />
+      {typeof profileImage === 'string' ? (
+        <Image src={profileImage} alt={name} width={192} height={192} loading={eager ? 'eager' : 'lazy'} class="profile-image" />
+      ) : (
+        <Image src={profileImage} alt={name} loading={eager ? 'eager' : 'lazy'} class="profile-image" />
+      )}
     </div>
   )
 }
