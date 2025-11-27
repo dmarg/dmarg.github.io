@@ -9,6 +9,11 @@
     --dark-bg: #0f172a;
     --dark-cyan: #00e5ff;
   }
+
+  html {
+    scrollbar-gutter: stable;
+  }
+
   body {
     @apply text-gray-900 bg-white;
     @apply dark:bg-[var(--dark-bg)] dark:text-gray-100;
