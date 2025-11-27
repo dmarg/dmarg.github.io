@@ -29,9 +29,9 @@ const relatedProjects = getRelatedPosts(project, allProjects, 5);
     <article class="prose prose-lg max-w-none mb-16 flex-1">
       {image && headerImage && <img src={image} alt={title} class="w-full rounded-lg shadow-lg mb-8" />}
 
-      <h1 class="text-4xl font-bold mb-4 mt-8 text-gray-900">{title}</h1>
+      <h1 class="text-4xl font-bold mb-4 mt-8 text-gray-900 dark:text-white">{title}</h1>
 
-      <div class="flex items-center gap-4 text-gray-600 text-sm mb-8 not-prose">
+      <div class="flex items-center gap-4 text-gray-600 dark:text-gray-400 text-sm mb-8 not-prose">
         <time datetime={date.toISOString()}>{formatDate(date)}</time>
         <span>•</span>
         <span>{readingTime}</span>
@@ -43,7 +43,7 @@ const relatedProjects = getRelatedPosts(project, allProjects, 5);
             {tags.map((tag) => (
               <a
                 href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
-                class="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm hover:bg-primary-200 transition-colors"
+                class="px-3 py-1 bg-primary-100 text-primary-700 dark:bg-cyan-900/30 dark:text-cyan-400 rounded-full text-sm hover:bg-primary-200 dark:hover:bg-cyan-900/50 transition-colors"
               >
                 {tag}
               </a>
@@ -60,12 +60,12 @@ const relatedProjects = getRelatedPosts(project, allProjects, 5);
     <!-- Related Projects -->
     {
       relatedProjects.length > 0 && (
-        <section class="mb-16 p-6 bg-gray-50 rounded-lg">
-          <h4 class="text-2xl font-bold mb-6 text-gray-900">Related Projects</h4>
+        <section class="mb-16 p-6 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+          <h4 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Related Projects</h4>
           <ul class="space-y-2">
             {relatedProjects.map((relatedProject) => (
               <li>
-                <a href={`/projects/${relatedProject.slug}`} class="text-primary-600 hover:text-primary-700 hover:underline">
+                <a href={`/projects/${relatedProject.slug}`} class="text-primary-600 dark:text-cyan-400 hover:text-primary-700 dark:hover:text-cyan-300 hover:underline">
                   {relatedProject.data.title}
                 </a>
               </li>

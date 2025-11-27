@@ -19,6 +19,46 @@ const fullTitle = title === 'Home' ? siteTitle : `${title} | ${siteTitle}`;
 <!doctype html>
 <html lang="en">
   <head>
+    <script is:inline>
+      // Theme initialization - runs before page renders to prevent flash
+      (function () {
+        // Check for saved preference first
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+          return;
+        }
+
+        // No saved preference - use time-based theme with seasonal sunrise/sunset
+        function getSeasonalSunTimes() {
+          const now = new Date();
+          const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
+
+          // Approximate sunrise/sunset times based on day of year
+          // Uses a sine wave to simulate seasonal variation
+          // Peak daylight around summer solstice (day 172), shortest around winter solstice (day 355)
+          const seasonalOffset = Math.sin(((dayOfYear - 80) * 2 * Math.PI) / 365) * 1.5;
+
+          // Base times: sunrise 6:30, sunset 18:30, adjusted by season (+/- 1.5 hours)
+          const sunrise = 6.5 - seasonalOffset;
+          const sunset = 18.5 + seasonalOffset;
+
+          return { sunrise, sunset };
+        }
+
+        const { sunrise, sunset } = getSeasonalSunTimes();
+        const now = new Date();
+        const currentHour = now.getHours() + now.getMinutes() / 60;
+
+        const isDaylight = currentHour >= sunrise && currentHour < sunset;
+
+        if (!isDaylight) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-59539046-1"></script>
     <script is:inline>

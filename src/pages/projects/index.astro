@@ -23,7 +23,7 @@ const visibleProjects = sortedProjects.filter((p) => !p.data.hidden);
 
       {
         visibleProjects.length === 0 ? (
-          <p class="text-center text-gray-600 py-12">No projects yet!</p>
+          <p class="text-center text-gray-600 dark:text-gray-400 py-12">No projects yet!</p>
         ) : (
           <div class="space-y-10">
             {visibleProjects.map((project) => (

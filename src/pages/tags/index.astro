@@ -28,7 +28,7 @@ const tags = getAllTags(allPosts);
           tags.map((tag) => (
             <a
               href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
-              class="px-4 py-2 bg-primary-100 text-primary-700 rounded-full hover:bg-primary-200 transition-colors font-medium"
+              class="px-4 py-2 bg-primary-100 text-primary-700 dark:bg-cyan-900/30 dark:text-cyan-400 rounded-full hover:bg-primary-200 dark:hover:bg-cyan-900/50 transition-colors font-medium"
             >
               {tag}
             </a>

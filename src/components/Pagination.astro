@@ -14,23 +14,23 @@ const nextUrl = currentPage < totalPages ? `${baseUrl}/${currentPage + 1}` : nul
   totalPages > 1 && (
     <div class="flex justify-center items-center gap-4 py-8">
       {prevUrl ? (
-        <a href={prevUrl} class="px-4 py-2 text-primary-600 hover:text-primary-700 font-medium transition-colors">
+        <a href={prevUrl} class="px-4 py-2 text-primary-600 dark:text-cyan-400 hover:text-primary-700 dark:hover:text-cyan-300 font-medium transition-colors">
           « Previous
         </a>
       ) : (
-        <span class="px-4 py-2 text-gray-300">« Previous</span>
+        <span class="px-4 py-2 text-gray-300 dark:text-gray-600">« Previous</span>
       )}
 
-      <span class="text-gray-600">
+      <span class="text-gray-600 dark:text-gray-400">
         Page {currentPage} of {totalPages}
       </span>
 
       {nextUrl ? (
-        <a href={nextUrl} class="px-4 py-2 text-primary-600 hover:text-primary-700 font-medium transition-colors">
+        <a href={nextUrl} class="px-4 py-2 text-primary-600 dark:text-cyan-400 hover:text-primary-700 dark:hover:text-cyan-300 font-medium transition-colors">
           Next »
         </a>
       ) : (
-        <span class="px-4 py-2 text-gray-300">Next »</span>
+        <span class="px-4 py-2 text-gray-300 dark:text-gray-600">Next »</span>
       )}
     </div>
   )

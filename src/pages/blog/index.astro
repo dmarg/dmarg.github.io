@@ -28,7 +28,7 @@ const paginatedPosts = sortedPosts.slice(0, postsPerPage);
 
       {
         paginatedPosts.length === 0 ? (
-          <p class="text-center text-gray-600 py-12">Nothing published yet!</p>
+          <p class="text-center text-gray-600 dark:text-gray-400 py-12">Nothing published yet!</p>
         ) : (
           <div class="space-y-8">
             {paginatedPosts.map((post) => (

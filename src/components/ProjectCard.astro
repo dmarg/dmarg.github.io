@@ -11,15 +11,17 @@ const { title, date, star, externalLink, tags } = project.data;
 const href = externalLink || `/projects/${project.slug}`;
 ---
 
-<article class={`group animate-slide-up pb-2 border-b border-gray-200 ${star ? 'border-l-4 border-accent-400 pl-4' : ''}`}>
+<article class={`group animate-slide-up pb-2 border-b border-gray-200 dark:border-gray-700 ${star ? 'border-l-4 border-accent-400 pl-4' : ''}`}>
   <a href={href} class="block" {...externalLink ? { target: '_blank', rel: 'noopener noreferrer' } : {}}>
     <div class="flex gap-4 items-start mb-4">
-      <aside class="text-sm text-gray-500 font-medium min-w-[100px]">
+      <aside class="text-sm text-gray-500 dark:text-gray-400 font-medium min-w-[100px]">
         <time datetime={date.toISOString()}>{formatDateShort(date)}</time>
       </aside>
       <div class="flex-1">
         <div class="flex gap-4 items-center">
-          <h3 class="text-xl font-semibold text-gray-900 group-hover:bg-gradient-to-r group-hover:from-blue group-hover:to-green group-hover:bg-clip-text group-hover:text-transparent flex items-center gap-2">
+          <h3
+            class="text-xl font-semibold text-gray-900 dark:text-white group-hover:bg-gradient-to-r group-hover:from-blue group-hover:to-green group-hover:bg-clip-text group-hover:text-transparent flex items-center gap-2"
+          >
             {title}
             {star && <span class="text-accent-400 text-sm">★</span>}
             {externalLink && <i class="fa-solid fa-arrow-up-right-from-square text-sm" />}
@@ -30,7 +32,7 @@ const href = externalLink || `/projects/${project.slug}`;
           tags && tags.length > 0 && (
             <div class="flex flex-wrap gap-2 mt-3">
               {tags.map((tag) => (
-                <span class="px-3 py-1.5 bg-primary-50 text-primary-700 rounded-lg text-sm font-medium">{tag}</span>
+                <span class="px-3 py-1.5 bg-primary-50 text-primary-700 dark:bg-cyan-900/30 dark:text-cyan-400 rounded-lg text-sm font-medium">{tag}</span>
               ))}
             </div>
           )
