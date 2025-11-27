@@ -11,7 +11,7 @@ const { title, date, star, externalLink, tags } = project.data;
 const href = externalLink || `/projects/${project.slug}`;
 ---
 
-<article class={`group animate-slide-up pb-2 border-b border-gray-200 dark:border-gray-700 ${star ? 'border-l-4 border-accent-400 pl-4' : ''}`}>
+<article class={`group animate-fade-in pb-2 border-b border-gray-200 dark:border-gray-700 ${star ? 'border-l-4 border-accent-400 pl-4' : ''}`}>
   <a href={href} class="block" {...externalLink ? { target: '_blank', rel: 'noopener noreferrer' } : {}}>
     <div class="flex gap-4 items-start mb-4">
       <aside class="text-sm text-gray-500 dark:text-gray-400 font-medium min-w-[100px]">
