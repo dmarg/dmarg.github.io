@@ -24,6 +24,7 @@ This site is built with [Astro](https://astro.build), a modern static site gener
 - 📊 Google Analytics integration
 - 💬 Disqus comments
 - 📰 RSS feed
+- 🌙 Dark mode support
 
 ## Development
 
